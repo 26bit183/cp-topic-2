@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main(){
+    int n, sq, temp1, temp2;
+    printf("Enter number: ");
+    scanf("%d", &n);
+
+    sq = n * n;
+    temp1 = n;
+    temp2 = sq;
+    int flag = 1;
+
+    while(temp1 > 0){
+        if(temp1 % 10 != temp2 % 10){
+            flag = 0;
+            break;
+        }
+        temp1 = temp1 / 10;
+        temp2 = temp2 / 10;
+    }
+
+    if(flag == 1)
+        printf("%d is Automorphic ( Square = %d )", n, sq);
+    else
+        printf("%d is NOT Automorphic ( Square = %d )", n, sq);
+
+    return 0;
+}
