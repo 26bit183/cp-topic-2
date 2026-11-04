@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main() {
+    int i, j, isPrime;
+    int sum = 0;
+
+    // Loop through numbers from 2 up to 500 (1 is not prime)
+    for (i = 2; i <= 500; i++) {
+        isPrime = 1; // Assume the number is prime
+
+        // Check if i is divisible by any number from 2 up to i/2
+        for (j = 2; j <= i / 2; j++) {
+            if (i % j == 0) {
+                isPrime = 0; // Found a factor, so it's not prime
+                break;       // Exit the inner loop
+            }
+        }
+
+        // If the number is prime, add it to the running sum
+        if (isPrime == 1) {
+            sum += i;
+        }
+    }
+
+    printf("The summation of prime numbers between 1 and 500 is: %d\n", sum);
+
+    return 0;
+}
